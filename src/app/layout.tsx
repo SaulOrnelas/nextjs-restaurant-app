@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import ReduxProvider from "@/redux/ReduxProvider";
 //import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import BootstrapClient from "@/componets/bootstrap/BootstrapClient";
@@ -30,11 +31,13 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <TheNavBar />
-        {children}
-        {/* <script src="./bootstrap/bootstrap.bundle.min.js"></script>
-        <script src="./bootstrap/popper.min.js"></script>
-        <script src="./bootstrap/bootstrap.min.js"></script> */}
+        <ReduxProvider>
+          <TheNavBar />
+          {children}
+          {/* <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+          <script src="./bootstrap/popper.min.js"></script>
+          <script src="./bootstrap/bootstrap.min.js"></script> */}
+        </ReduxProvider>
       </body>
     </html>
   );
